@@ -3,16 +3,41 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TECH HUB GH</title>
-<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}header{background:linear-gradient(135deg,#007BFF,#004a99);color:#fff;padding:35px 20px;text-align:center}.filters{display:flex;gap:10px;padding:20px;justify-content:center;background:#fff}.filter-btn{padding:10px 20px;border:2px solid #007BFF;background:#fff;color:#007BFF;border-radius:25px;font-weight:600}.filter-btn.active{background:#007BFF;color:#fff}.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:25px 15px;max-width:1200px;margin:auto}.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,.1)}.card img{width:100%;height:200px;object-fit:cover}.card-content{padding:18px}.tag{background:#e3f2fd;color:#007BFF;padding:4px 10px;border-radius:15px;font-size:.75em;font-weight:600}.price{font-size:1.5em;color:#00C851;font-weight:700;margin:10px 0}.btn{width:100%;padding:12px;background:#25D366;color:#fff;border:none;border-radius:8px;font-weight:700}</style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+header{background:linear-gradient(135deg,#007BFF,#004a99);color:#fff;padding:35px 20px;text-align:center}
+.filters{display:flex;gap:10px;padding:20px;justify-content:center;background:#fff;flex-wrap:wrap}
+.filter-btn{padding:10px 20px;border:2px solid #007BFF;background:#fff;color:#007BFF;border-radius:25px;font-weight:600}
+.filter-btn.active{background:#007BFF;color:#fff}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:25px 15px;max-width:1200px;margin:auto}
+.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,.1)}
+.card img{width:100%;height:200px;object-fit:cover}
+.card-content{padding:18px}
+.tags{display:flex;gap:8px;margin-bottom:8px}
+.tag{background:#e3f2fd;color:#007BFF;padding:4px 10px;border-radius:15px;font-size:.75em;font-weight:600}
+.tag.used{background:#FFF3CD;color:#856404} 
+.tag.new{background:#D4EDDA;color:#155724}
+.price{font-size:1.5em;color:#00C851;font-weight:700;margin:10px 0}
+.btn{width:100%;padding:12px;background:#25D366;color:#fff;border:none;border-radius:8px;font-weight:700}
+</style>
 </head>
 <body>
-<header><h1>TECH HUB GH</h1><p>Quality UK Used Phones & Laptops 🇬🇭</p></header>
+<header><h1>TECH HUB GH</h1><p>UK Used & Brand New Phones, Laptops & Accessories 🇬🇭</p></header>
 <div class="filters"><button class="filter-btn active" onclick="show('All',this)">All</button><button class="filter-btn" onclick="show('Phones',this)">Phones</button><button class="filter-btn" onclick="show('Laptops',this)">Laptops</button><button class="filter-btn" onclick="show('Accessories',this)">Accessories</button></div>
 <div class="products" id="p"></div>
-<footer style="text-align:center;padding:25px"><p>📱 WhatsApp: +233547488369</p></footer>
+<footer style="text-align:center;padding:25px"><p>📱 WhatsApp: +233547488369 | Accra, Ghana</p></footer>
 <script>
-const data=[{n:"iPhone 11 128GB",c:"Phones",p:"GHS 2,800",i:"https://i.imgur.com/8Km9tLL.jpg",d:"UK Used, Battery 89%"},{n:"Samsung S21",c:"Phones",p:"GHS 3,200",i:"https://i.imgur.com/5cO3F3v.jpg",d:"UK Used, 128GB"},{n:"HP EliteBook",c:"Laptops",p:"GHS 4,500",i:"https://i.imgur.com/3KzZxYq.jpg",d:"i5, 16GB RAM"},{n:"AirPods Pro",c:"Accessories",p:"GHS 850",i:"https://i.imgur.com/zxCvBnM.jpg",d:"Noise Cancelling"}];
-function show(cat,btn){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');p.innerHTML='';data.filter(x=>cat=='All'||x.c==cat).forEach(x=>p.innerHTML+=`<div class="card"><img src="${x.i}"><div class="card-content"><span class="tag">${x.c}</span><h3>${x.n}</h3><p>${x.d}</p><div class="price">${x.p}</div><button class="btn" onclick="window.open('https://wa.me/233547488369?text=Hi TECH HUB GH, interested in: ${x.n} - ${x.p}')">📱 Order on WhatsApp</button></div></div>`)}
+const data=[
+{n:"iPhone 11 128GB",c:"Phones",p:"GHS 2,800",i:"https://i.imgur.com/8Km9tLL.jpg",d:"Battery 89%, 1 Month Warranty",cond:"used"},
+{n:"Samsung S23 Ultra",c:"Phones",p:"GHS 6,500",i:"https://i.imgur.com/5cO3F3v.jpg",d:"Brand New, Sealed, 256GB",cond:"new"},
+{n:"HP EliteBook i5",c:"Laptops",p:"GHS 4,500",i:"https://i.imgur.com/3KzZxYq.jpg",d:"10th Gen, 16GB RAM",cond:"used"},
+{n:"MacBook Air M2",c:"Laptops",p:"GHS 9,200",i:"https://i.imgur.com/qwErtYp.jpg",d:"Brand New, 512GB SSD",cond:"new"},
+{n:"AirPods Pro",c:"Accessories",p:"GHS 850",i:"https://i.imgur.com/zxCvBnM.jpg",d:"Noise Cancelling",cond:"used"},
+{n:"20W iPhone Charger",c:"Accessories",p:"GHS 120",i:"https://i.imgur.com/aSdFgHj.jpg",d:"Brand New, Original",cond:"new"}
+];
+function show(cat,btn){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');p.innerHTML='';data.filter(x=>cat=='All'||x.c==cat).forEach(x=>{
+let badge = x.cond=='new' ? '<span class="tag new">BRAND NEW</span>' : '<span class="tag used">UK USED</span>';
+p.innerHTML+=`<div class="card"><img src="${x.i}"><div class="card-content"><div class="tags">${badge}<span class="tag">${x.c}</span></div><h3>${x.n}</h3><p>${x.d}</p><div class="price">${x.p}</div><button class="btn" onclick="window.open('https://wa.me/233547488369?text=Hi TECH HUB GH, interested in: ${x.n} - ${x.p}')">📱 Order on WhatsApp</button></div></div>`})}
 show('All')
 </script>
 </body>
