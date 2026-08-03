@@ -1,103 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TECH HUB GH - UK Used Phones, Laptops & Accessories</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f5f5}
-header{background:#1a1a1a;color:white;padding:20px;text-align:center;position:sticky;top:0;z-index:10}
-header h1{color:#00d4ff;font-size:28px}
-header p{color:#ccc;margin-top:5px}
-.container{max-width:1200px;margin:20px auto;padding:0 15px}
-.filters{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
-.filters button{padding:10px 20px;border:none;background:white;border-radius:8px;cursor:pointer;font-weight:bold}
-.filters button.active{background:#00d4ff;color:white}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
-.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-.card img{width:100%;height:200px;object-fit:cover}
-.card-content{padding:15px}
-.card h3{font-size:16px;margin-bottom:8px}
-.price{color:#00d4ff;font-size:20px;font-weight:bold;margin:8px 0}
-.category{font-size:12px;color:#666;background:#eee;padding:4px 8px;border-radius:4px;display:inline-block}
-.desc{font-size:13px;color:#555;margin:8px 0}
-.whatsapp-btn{display:block;width:100%;background:#25D366;color:white;text-align:center;padding:12px;border:none;border-radius:8px;font-weight:bold;text-decoration:none;margin-top:10px}
-.whatsapp-btn:hover{background:#22c55e}
-.loading{text-align:center;padding:40px;font-size:18px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TECH HUB GH - Quality UK Used Phones & Laptops</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    
+    body { background: #f5f7fa; color: #333; }
+    
+    header {
+      background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+      color: white; padding: 40px 20px; text-align: center;
+      box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+    }
+    header h1 { font-size: 2.5em; margin-bottom: 10px; letter-spacing: 2px; }
+    header p { font-size: 1.1em; opacity: 0.9; }
+    
+    .filters {
+      display: flex; gap: 10px; padding: 20px; justify-content: center; flex-wrap: wrap;
+      background: white; position: sticky; top: 0; z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .filter-btn {
+      padding: 12px 24px; border: 2px solid #007BFF; background: white;
+      color: #007BFF; border-radius: 25px; cursor: pointer; font-weight: 600;
+      transition: all 0.3s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: #007BFF; color: white; transform: translateY(-2px);
+    }
+    
+    .products {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px; padding: 30px 20px; max-width: 1200px; margin: auto;
+    }
+    
+    .card {
+      background: white; border-radius: 15px; overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s;
+    }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,123,255,0.2); }
+    
+    .card img { width: 100%; height: 220px; object-fit: cover; }
+    
+    .card-content { padding: 20px; }
+    .tag { 
+      display: inline-block; background: #e3f2fd; color: #007BFF;
+      padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 600; margin-bottom: 10px;
+    }
+    .card h3 { font-size: 1.3em; margin-bottom: 8px; color: #222; }
+    .desc { color: #666; font-size: 0.9em; margin-bottom: 15px; }
+    .price { font-size: 1.6em; color: #00C851; font-weight: 700; margin-bottom: 15px; }
+    
+    .btn {
+      width: 100%; padding: 14px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: white; border: none; border-radius: 10px; font-size: 1.1em; font-weight: 700;
+      cursor: pointer; transition: all 0.3s;
+    }
+    .btn:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(37,211,102,0.4); }
+    
+    footer { text-align: center; padding: 30px; color: #666; background: white; margin-top: 40px; }
+  </style>
 </head>
 <body>
-<header>
-  <h1>TECH HUB GH</h1>
-  <p>Quality UK Used Phones, Laptops & Accessories</p>
-</header>
+  <header>
+    <h1>TECH HUB GH</h1>
+    <p>Quality UK Used Phones, Laptops & Accessories 🇬🇭</p>
+  </header>
 
-<div class="container">
   <div class="filters">
-    <button class="filter-btn active" data-category="All">All</button>
-    <button class="filter-btn" data-category="Phones">Phones</button>
-    <button class="filter-btn" data-category="Laptops">Laptops</button>
-    <button class="filter-btn" data-category="Accessories">Accessories</button>
+    <button class="filter-btn active" onclick="filterCat('All')">All</button>
+    <button class="filter-btn" onclick="filterCat('Phones')">Phones</button>
+    <button class="filter-btn" onclick="filterCat('Laptops')">Laptops</button>
+    <button class="filter-btn" onclick="filterCat('Accessories')">Accessories</button>
   </div>
 
-  <div id="products" class="grid">
-    <div class="loading">Loading products...</div>
-  </div>
-</div>
-
-<script>
-const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1ImwZdtEOd1X1tB4kypSHUjtNNwMxGnTU0TTYn2gr5zE/export?format=csv';
-const WHATSAPP = '+233547488369';
-
-let allProducts = [];
-
-async function loadProducts() {
-  try {
-    const res = await fetch(SHEET_URL);
-    const csv = await res.text();
-    const rows = csv.split('\n').slice(1);
-    
-    allProducts = rows.map(row => {
-      const [image, name, price, category, desc, whatsapp] = row.split(',');
-      return {image, name, price, category, desc, whatsapp: whatsapp || WHATSAPP};
-    }).filter(p => p.name);
-    
-    displayProducts(allProducts);
-  } catch(e) {
-    document.getElementById('products').innerHTML = '<p>Error loading products</p>';
-  }
-}
-
-function displayProducts(products) {
-  const grid = document.getElementById('products');
-  grid.innerHTML = products.map(p => `
-    <div class="card">
-      <img src="${p.image}" alt="${p.name}">
-      <div class="card-content">
-        <span class="category">${p.category}</span>
-        <h3>${p.name}</h3>
-        <p class="desc">${p.desc}</p>
-        <div class="price">GHS ${p.price}</div>
-        <a class="whatsapp-btn" href="https://wa.me/${p.whatsapp.replace(/\+/g,'')}?text=Hi TECH HUB GH, I'm interested in ${encodeURIComponent(p.name)} for GHS ${p.price}" target="_blank">
-          Order on WhatsApp
-        </a>
-      </div>
-    </div>
-  `).join('');
-}
-
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.onclick = () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const cat = btn.dataset.category;
-    const filtered = cat === 'All' ? allProducts : allProducts.filter(p => p.category === cat);
-    displayProducts(filtered);
-  }
-});
-
-loadProducts();
-</script>
-</body>
-</html>
+  <div class="products" id="products"></div>
+  
+  <footer>
+    <p>📍 Acc
