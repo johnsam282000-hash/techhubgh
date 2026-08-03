@@ -1,82 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TECH HUB GH - Quality UK Used Phones & Laptops</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-    
-    body { background: #f5f7fa; color: #333; }
-    
-    header {
-      background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
-      color: white; padding: 40px 20px; text-align: center;
-      box-shadow: 0 4px 15px rgba(0,123,255,0.3);
-    }
-    header h1 { font-size: 2.5em; margin-bottom: 10px; letter-spacing: 2px; }
-    header p { font-size: 1.1em; opacity: 0.9; }
-    
-    .filters {
-      display: flex; gap: 10px; padding: 20px; justify-content: center; flex-wrap: wrap;
-      background: white; position: sticky; top: 0; z-index: 10;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-    .filter-btn {
-      padding: 12px 24px; border: 2px solid #007BFF; background: white;
-      color: #007BFF; border-radius: 25px; cursor: pointer; font-weight: 600;
-      transition: all 0.3s;
-    }
-    .filter-btn.active, .filter-btn:hover {
-      background: #007BFF; color: white; transform: translateY(-2px);
-    }
-    
-    .products {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px; padding: 30px 20px; max-width: 1200px; margin: auto;
-    }
-    
-    .card {
-      background: white; border-radius: 15px; overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s;
-    }
-    .card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,123,255,0.2); }
-    
-    .card img { width: 100%; height: 220px; object-fit: cover; }
-    
-    .card-content { padding: 20px; }
-    .tag { 
-      display: inline-block; background: #e3f2fd; color: #007BFF;
-      padding: 5px 12px; border-radius: 20px; font-size: 0.8em; font-weight: 600; margin-bottom: 10px;
-    }
-    .card h3 { font-size: 1.3em; margin-bottom: 8px; color: #222; }
-    .desc { color: #666; font-size: 0.9em; margin-bottom: 15px; }
-    .price { font-size: 1.6em; color: #00C851; font-weight: 700; margin-bottom: 15px; }
-    
-    .btn {
-      width: 100%; padding: 14px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: white; border: none; border-radius: 10px; font-size: 1.1em; font-weight: 700;
-      cursor: pointer; transition: all 0.3s;
-    }
-    .btn:hover { transform: scale(1.02); box-shadow: 0 5px 15px rgba(37,211,102,0.4); }
-    
-    footer { text-align: center; padding: 30px; color: #666; background: white; margin-top: 40px; }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TECH HUB GH</title>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}header{background:linear-gradient(135deg,#007BFF,#004a99);color:#fff;padding:35px 20px;text-align:center}.filters{display:flex;gap:10px;padding:20px;justify-content:center;background:#fff}.filter-btn{padding:10px 20px;border:2px solid #007BFF;background:#fff;color:#007BFF;border-radius:25px;font-weight:600}.filter-btn.active{background:#007BFF;color:#fff}.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:25px 15px;max-width:1200px;margin:auto}.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,.1)}.card img{width:100%;height:200px;object-fit:cover}.card-content{padding:18px}.tag{background:#e3f2fd;color:#007BFF;padding:4px 10px;border-radius:15px;font-size:.75em;font-weight:600}.price{font-size:1.5em;color:#00C851;font-weight:700;margin:10px 0}.btn{width:100%;padding:12px;background:#25D366;color:#fff;border:none;border-radius:8px;font-weight:700}</style>
 </head>
 <body>
-  <header>
-    <h1>TECH HUB GH</h1>
-    <p>Quality UK Used Phones, Laptops & Accessories 🇬🇭</p>
-  </header>
-
-  <div class="filters">
-    <button class="filter-btn active" onclick="filterCat('All')">All</button>
-    <button class="filter-btn" onclick="filterCat('Phones')">Phones</button>
-    <button class="filter-btn" onclick="filterCat('Laptops')">Laptops</button>
-    <button class="filter-btn" onclick="filterCat('Accessories')">Accessories</button>
-  </div>
-
-  <div class="products" id="products"></div>
-  
-  <footer>
-    <p>📍 Acc
+<header><h1>TECH HUB GH</h1><p>Quality UK Used Phones & Laptops 🇬🇭</p></header>
+<div class="filters"><button class="filter-btn active" onclick="show('All',this)">All</button><button class="filter-btn" onclick="show('Phones',this)">Phones</button><button class="filter-btn" onclick="show('Laptops',this)">Laptops</button><button class="filter-btn" onclick="show('Accessories',this)">Accessories</button></div>
+<div class="products" id="p"></div>
+<footer style="text-align:center;padding:25px"><p>📱 WhatsApp: +233547488369</p></footer>
+<script>
+const data=[{n:"iPhone 11 128GB",c:"Phones",p:"GHS 2,800",i:"https://i.imgur.com/8Km9tLL.jpg",d:"UK Used, Battery 89%"},{n:"Samsung S21",c:"Phones",p:"GHS 3,200",i:"https://i.imgur.com/5cO3F3v.jpg",d:"UK Used, 128GB"},{n:"HP EliteBook",c:"Laptops",p:"GHS 4,500",i:"https://i.imgur.com/3KzZxYq.jpg",d:"i5, 16GB RAM"},{n:"AirPods Pro",c:"Accessories",p:"GHS 850",i:"https://i.imgur.com/zxCvBnM.jpg",d:"Noise Cancelling"}];
+function show(cat,btn){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');p.innerHTML='';data.filter(x=>cat=='All'||x.c==cat).forEach(x=>p.innerHTML+=`<div class="card"><img src="${x.i}"><div class="card-content"><span class="tag">${x.c}</span><h3>${x.n}</h3><p>${x.d}</p><div class="price">${x.p}</div><button class="btn" onclick="window.open('https://wa.me/233547488369?text=Hi TECH HUB GH, interested in: ${x.n} - ${x.p}')">📱 Order on WhatsApp</button></div></div>`)}
+show('All')
+</script>
+</body>
+</html>
