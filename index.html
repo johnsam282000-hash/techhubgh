@@ -58,13 +58,12 @@ const data=[
 {n:"iPhone 13 128GB",c:"Phones",p:"GHS 3,650",i:"iphone13.jpg",d:"UK Used, Too Much Clean, Available in Quantity",cond:"used"},
 {n:"HP EliteBook 1030 G8",c:"Laptops",p:"GHS 6,800",i:"hp-1030.jpg",d:"UK Used, i7 11th Gen, 16GB RAM, 1TB SSD, X360 Touchscreen",cond:"used"},
 {n:"Lenovo ThinkPad P14s Gen2",c:"Laptops",p:"GHS 4,600",i:"thinkpad-p14s.jpg",d:"UK Used, i7 11th Gen, 16GB RAM, 256GB SSD, NVIDIA T500 Gaming",cond:"used"},
-{n:"Lenovo ThinkPad T490",c:"Laptops",p:"GHS 3,000",i:"thinkpad-t490.jpg",d:"UK Used, i5 8th Gen, 8GB RAM, 256GB SSD, Fingerprint",cond:"used"},
-{n:"All iPhones In Stock",c:"Phones",p:"From GHS 2,500",i:"iphones-stock.jpg",d:"iPhone 11, 12, 13, 14, 15 - DM with your budget",cond:"used"}
+{n:"Lenovo ThinkPad T490",c:"Laptops",p:"GHS 3,000",i:"thinkpad-t490.jpg",d:"UK Used, i5 8th Gen, 8GB RAM, 256GB SSD, Fingerprint",cond:"used"}
 ];
 
 function show(cat,btn){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
+  if(btn) btn.classList.add('active');
   p.innerHTML='';
   data.filter(x=>cat=='All'||x.c==cat).forEach(x=>{
     let badge = x.cond=='new' ? '<span class="tag new">BRAND NEW</span>' : '<span class="tag used">UK USED</span>';
@@ -81,8 +80,10 @@ function show(cat,btn){
     </div>`
   })
 }
-show('All')
+
+// THIS LINE MAKES IT LOAD AUTOMATICALLY
+window.onload = function() { show('All', document.querySelector('.filter-btn')) }
 </script>
 
 </body>
-  </html>
+</html>
