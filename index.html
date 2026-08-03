@@ -7,33 +7,36 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 header{background:linear-gradient(135deg,#007BFF,#004a99);color:#fff;padding:35px 20px;text-align:center}
 .filters{display:flex;gap:10px;padding:20px;justify-content:center;background:#fff;flex-wrap:wrap}
-.filter-btn{padding:10px 20px;border:2px solid #007BFF;background:#fff;color:#007BFF;border-radius:25px;font-weight:600}
+.filter-btn{padding:10px 20px;border:2px solid #007BFF;background:#fff;color:#007BFF;border-radius:25px;font-weight:600;cursor:pointer}
 .filter-btn.active{background:#007BFF;color:#fff}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;padding:25px 15px;max-width:1200px;margin:auto}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;padding:25px 15px;max-width:1300px;margin:auto}
 .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 15px rgba(0,0,0,.1)}
-.card img{width:100%;height:200px;object-fit:cover}
+.card img{width:100%;height:240px;object-fit:cover}
 .card-content{padding:18px}
-.tags{display:flex;gap:8px;margin-bottom:8px}
+.tags{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}
 .tag{background:#e3f2fd;color:#007BFF;padding:4px 10px;border-radius:15px;font-size:.75em;font-weight:600}
 .tag.used{background:#FFF3CD;color:#856404} 
 .tag.new{background:#D4EDDA;color:#155724}
-.price{font-size:1.5em;color:#00C851;font-weight:700;margin:10px 0}
-.btn{width:100%;padding:12px;background:#25D366;color:#fff;border:none;border-radius:8px;font-weight:700}
+.price{font-size:1.7em;color:#00C851;font-weight:700;margin:10px 0}
+.btn{width:100%;padding:14px;background:#25D366;color:#fff;border:none;border-radius:8px;font-weight:700;font-size:1em;cursor:pointer}
 </style>
 </head>
 <body>
-<header><h1>TECH HUB GH</h1><p>UK Used & Brand New Phones, Laptops & Accessories 🇬🇭</p></header>
-<div class="filters"><button class="filter-btn active" onclick="show('All',this)">All</button><button class="filter-btn" onclick="show('Phones',this)">Phones</button><button class="filter-btn" onclick="show('Laptops',this)">Laptops</button><button class="filter-btn" onclick="show('Accessories',this)">Accessories</button></div>
+<header><h1>TECH HUB GH</h1><p>UK Used & Brand New Phones, Laptops, Tablets 🇬🇭</p></header>
+<div class="filters"><button class="filter-btn active" onclick="show('All',this)">All</button><button class="filter-btn" onclick="show('Phones',this)">Phones</button><button class="filter-btn" onclick="show('Laptops',this)">Laptops</button><button class="filter-btn" onclick="show('Tablets',this)">Tablets</button></div>
 <div class="products" id="p"></div>
-<footer style="text-align:center;padding:25px"><p>📱 WhatsApp: +233547488369 | Accra, Ghana</p></footer>
+<footer style="text-align:center;padding:25px;background:#f8f9fa"><p>📱 WhatsApp: +233547488369 | Accra, Ghana | 1 Month Warranty</p></footer>
 <script>
 const data=[
-{n:"iPhone 11 128GB",c:"Phones",p:"GHS 2,800",i:"https://i.imgur.com/8Km9tLL.jpg",d:"Battery 89%, 1 Month Warranty",cond:"used"},
-{n:"Samsung S23 Ultra",c:"Phones",p:"GHS 6,500",i:"https://i.imgur.com/5cO3F3v.jpg",d:"Brand New, Sealed, 256GB",cond:"new"},
-{n:"HP EliteBook i5",c:"Laptops",p:"GHS 4,500",i:"https://i.imgur.com/3KzZxYq.jpg",d:"10th Gen, 16GB RAM",cond:"used"},
-{n:"MacBook Air M2",c:"Laptops",p:"GHS 9,200",i:"https://i.imgur.com/qwErtYp.jpg",d:"Brand New, 512GB SSD",cond:"new"},
-{n:"AirPods Pro",c:"Accessories",p:"GHS 850",i:"https://i.imgur.com/zxCvBnM.jpg",d:"Noise Cancelling",cond:"new"},
-{n:"20W iPhone Charger",c:"Accessories",p:"GHS 120",i:"https://i.imgur.com/aSdFgHj.jpg",d:"Brand New, Original",cond:"new"}
+{n:"iPad A16 128GB",c:"Tablets",p:"GHS 4,800",i:"https://i.imgur.com/2mN8qLs.jpg",d:"Brand New, Wi-Fi Only, Sealed",cond:"new"},
+{n:"iPhone 16 128GB",c:"Phones",p:"GHS 7,500",i:"https://i.imgur.com/8zL2mNp.jpg",d:"Brand New, Pink/Blue, Installment Allowed",cond:"new"},
+{n:"iPhone 17e 256GB",c:"Phones",p:"GHS 4,500",i:"https://i.imgur.com/3jK9vQm.jpg",d:"Brand New, Sealed, eSIM Only",cond:"new"},
+{n:"iPhone 13 128GB",c:"Phones",p:"GHS 3,650",i:"https://i.imgur.com/5cO3F3v.jpg",d:"UK Used, Too Much Clean, Multiple Colors",cond:"used"},
+{n:"iPhone 16 Plus 128GB",c:"Phones",p:"GHS 8,200",i:"https://i.imgur.com/9kR4tYw.jpg",d:"Brand New, Multiple Colors",cond:"new"},
+{n:"HP EliteBook 1030 G8",c:"Laptops",p:"GHS 6,800",i:"https://i.imgur.com/6dF1rEm.jpg",d:"UK Used, i7 11th Gen, 16GB RAM, 1TB SSD, X360 Touch",cond:"used"},
+{n:"Lenovo ThinkPad P14s Gen2",c:"Laptops",p:"GHS 4,600",i:"https://i.imgur.com/4hG7wQx.jpg",d:"UK Used, i7 11th Gen, 16GB RAM, 256GB SSD, NVIDIA T500, Touchscreen",cond:"used"},
+{n:"Lenovo ThinkPad T490",c:"Laptops",p:"GHS 3,000",i:"https://i.imgur.com/7pV3sZk.jpg",d:"UK Used, i5 8th Gen, 8GB RAM, 256GB SSD, Fingerprint",cond:"used"},
+{n:"iPhones In Stock",c:"Phones",p:"From GHS 2,500",i:"https://i.imgur.com/1aB2cD3.jpg",d:"iPhone 11, 12, 13, 14, 15 Available - DM for price",cond:"used"}
 ];
 function show(cat,btn){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');p.innerHTML='';data.filter(x=>cat=='All'||x.c==cat).forEach(x=>{
 let badge = x.cond=='new' ? '<span class="tag new">BRAND NEW</span>' : '<span class="tag used">UK USED</span>';
@@ -41,4 +44,4 @@ p.innerHTML+=`<div class="card"><img src="${x.i}"><div class="card-content"><div
 show('All')
 </script>
 </body>
-</html>
+  </html>
